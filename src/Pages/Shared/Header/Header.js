@@ -23,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <div className=''>
+        <div onClick={() => setShow(!show)} className=''>
             <div className="py-5">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
@@ -105,7 +105,7 @@ const Header = () => {
                                             className={`absolute right-0 z-10 w-56 origin-top-right rounded-md border border-gray-300 bg-[#f5f4f0] shadow-lg ${show ? 'block' : 'hidden'}`}
                                             role="menu"
                                         >
-                                            <div className="p-2 flex flex-col gap-2">
+                                            <div onClick={() => setShow(!show)} className="p-2 flex flex-col gap-2">
                                                 <div>
                                                     <NavLink
                                                         to="/myReview"
@@ -117,7 +117,7 @@ const Header = () => {
                                                     </NavLink>
                                                 </div>
 
-                                                <div>
+                                                <div onClick={() => setShow(!show)}>
                                                     <NavLink
                                                         to="/addService"
                                                         aria-label="Product pricing"
@@ -127,7 +127,7 @@ const Header = () => {
                                                         Add Service
                                                     </NavLink>
                                                 </div>
-                                                <div>
+                                                <div onClick={() => setShow(!show)}>
                                                     <button onClick={handleLogout}
                                                         role="menuitem"
                                                         className="w-full inline-flex items-center justify-center px-6 py-2 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl">Logout</button>

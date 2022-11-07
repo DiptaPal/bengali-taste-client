@@ -4,6 +4,7 @@ import Signin from "../../Login/Signin";
 import Singup from "../../Login/Singup";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
+import AddService from "../AddService/AddService";
 
 
 export const routes = createBrowserRouter([
@@ -27,6 +28,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Singup></Singup>
+            },
+            {
+                path: '/addService',
+                element: <AddService></AddService>
             }
 
         ]
