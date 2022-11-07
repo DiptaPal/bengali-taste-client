@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Signin = () => {
     const { setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, logIn, passwordReset } = useContext(AuthContext);
@@ -10,6 +11,8 @@ const Signin = () => {
     const location = useLocation();
     const [email, setEmail] = useState();
     const [error, setError] = useState('');
+
+    useTitle('Login')
 
     let from = location.state?.from?.pathname || "/";
 

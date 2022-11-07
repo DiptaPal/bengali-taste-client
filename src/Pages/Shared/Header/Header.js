@@ -7,6 +7,8 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext);
+    const [show, setShow] = useState(false)
+
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -31,7 +33,7 @@ const Header = () => {
                             className="inline-flex items-center mr-8"
                         >
                             <img src={logo} className="h-auto w-20" alt="" />
-                            <span className="ml-2 text-3xl font-bold tracking-wide mr-6 text-activeColor">
+                            <span className="ml-2 text-2xl font-bold tracking-wide mr-6 text-activeColor">
                                 Bangoli Taste
                             </span>
                         </NavLink>
@@ -48,13 +50,13 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/courses"
+                                    to="/services"
                                     aria-label="Our product"
                                     className={({ isActive }) =>
                                         isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"
                                     }
                                 >
-                                    Blog
+                                    Service
                                 </NavLink>
                             </li>
                             <li>
@@ -65,45 +67,86 @@ const Header = () => {
                                         isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"
                                     }
                                 >
-                                    Add Service
+                                    Blog
                                 </NavLink>
                             </li>
+
                         </ul>
                     </div>
+
                     <ul className="flex items-center hidden space-x-8 lg:flex">
-                        <li>
-                            {
-                                user && user?.uid ?
-                                    <div className='flex items-center gap-1'>
-                                        <NavLink>
-                                            {
-                                                user?.photoURL ?
-                                                    <Link to='/profile'>
-                                                        <img className='w-14 p-1 h-14 mx-auto bg-navActive rounded-xl text-center' src={user?.photoURL} alt="" />
-                                                    </Link>
-                                                    :
-                                                    <Link to='/profile' className='text-navActive'>
-                                                        <FiUserCheck className='w-14 p-1 h-14 mx-auto bg-white rounded-xl text-center'>
-                                                        </FiUserCheck>
-                                                    </Link>
-                                            }
-                                        </NavLink>
-                                        <button onClick={handleLogout} className="px-4 py-1 text-lg text-navActive bg-white font-semibold shadow-md rounded-md transition duration-200 hover:bg-navActive hover:text-white focus:shadow-outline focus:outline-none">Logout</button>
-                                    </div>
-                                    :
-                                    <NavLink
-                                        to="/login"
-                                        className={({ isActive }) =>
-                                            isActive ? "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-normalColor text-activeColor transition duration-200 rounded-md shadow-md hover:bg-activeColor hover:text-normalColor focus:shadow-outline focus:outline-none text-xl" : "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
+                    {
+                        user && user?.uid ?
+                            
+                                <div className="inline-flex items-stretch rounded-xl border bg-white">
+                                    <button onClick={() => setShow(!show)}>
+                                        {
+                                            user?.photoURL ?
+                                                <div className="rounded-md">
+                                                    <img className='w-14 h-14 mx-auto bg-navActive rounded-xl text-center' src={user?.photoURL} alt="" />
+                                                </div> :
+                                                <div className="rounded-l-md px-4 py-2">
+                                                    <FiUserCheck className='w-14 h-14 mx-auto bg-white rounded-xl text-center'>
+                                                    </FiUserCheck>
+                                                </div>
                                         }
-                                        aria-label="Sign up"
-                                    >
-                                        Login
-                                    </NavLink>
-                            }
+                                    </button>
 
 
-                        </li>
+                                    <div className="relative">
+                                        <button
+                                            type="button"
+                                            className="inline-flex h-full items-center justify-center rounded-r-md"
+                                        >
+                                            <span className="sr-only">Menu</span>
+                                        </button>
+
+                                        <div
+                                            className={`absolute right-0 z-10 w-56 origin-top-right rounded-md border border-gray-300 bg-[#f5f4f0] shadow-lg ${show ? 'block' : 'hidden'}`}
+                                            role="menu"
+                                        >
+                                            <div className="p-2 flex flex-col gap-2">
+                                                <div>
+                                                    <NavLink
+                                                        to="/myReview"
+                                                        aria-label="Product pricing"
+                                                        className="w-full inline-flex items-center justify-center px-6 py-2 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
+                                                        role="menuitem"
+                                                    >
+                                                        My Review
+                                                    </NavLink>
+                                                </div>
+
+                                                <div>
+                                                    <NavLink
+                                                        to="/addService"
+                                                        aria-label="Product pricing"
+                                                        className="w-full inline-flex items-center justify-center px-6 py-2 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
+                                                        role="menuitem"
+                                                    >
+                                                        Add Service
+                                                    </NavLink>
+                                                </div>
+                                                <div>
+                                                    <button onClick={handleLogout}
+                                                        role="menuitem"
+                                                        className="w-full inline-flex items-center justify-center px-6 py-2 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl">Logout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            :
+                                <NavLink
+                                    to="/login"
+                                    className={({ isActive }) =>
+                                        isActive ? "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-normalColor text-activeColor transition duration-200 rounded-md shadow-md hover:bg-activeColor hover:text-normalColor focus:shadow-outline focus:outline-none text-xl" : "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
+                                    }
+                                    aria-label="Sign up"
+                                >
+                                    Login
+                                </NavLink>
+                    }
                     </ul>
                     <div className="lg:hidden">
                         <button
@@ -128,7 +171,7 @@ const Header = () => {
                         </button>
                         {isMenuOpen && (
                             <div className="absolute top-0 left-0 w-full">
-                                <div className="p-5 bg-white border rounded shadow-sm">
+                                <div className="p-5 bg-[#f5f4f0] border rounded shadow-sm">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
                                             <NavLink
@@ -146,7 +189,7 @@ const Header = () => {
                                         <div>
                                             <button
                                                 aria-label="Close Menu"
-                                                className="p-2 -mt-2 -mr-2 transition text-navActive bg-white duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                className="p-2 -mt-2 -mr-2 transition text-navActive bg-[#f5f4f0] duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <svg className="w-5 text-navActive" viewBox="0 0 20 20">
@@ -158,7 +201,7 @@ const Header = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <nav>
+                                    <nav className='z-50'>
                                         <ul className="space-y-4">
                                             <li>
                                                 <NavLink
@@ -172,7 +215,18 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to="/courses"
+                                                    to="/service"
+                                                    aria-label="courses"
+                                                    className={({ isActive }) =>
+                                                        isActive ? "font-medium tracking-wide text-navActive hover:text-navColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-navColor hover:text-navActive transition-colors duration-300 text-xl"
+                                                    }
+                                                >
+                                                    Service
+                                                </NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink
+                                                    to="/blog"
                                                     aria-label="courses"
                                                     className={({ isActive }) =>
                                                         isActive ? "font-medium tracking-wide text-navActive hover:text-navColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-navColor hover:text-navActive transition-colors duration-300 text-xl"
@@ -181,56 +235,79 @@ const Header = () => {
                                                     Blog
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/faq"
-                                                    aria-label="faq"
-                                                    className={({ isActive }) =>
-                                                        isActive ? "font-medium tracking-wide text-navActive hover:text-navColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-navColor hover:text-navActive transition-colors duration-300 text-xl"
-                                                    }
-                                                >
-                                                    Add Service
-                                                </NavLink>
-                                            </li>
-                                            <li>
+                                            <>
                                                 {
                                                     user && user?.uid ?
-                                                        <div className='flex  flex-col lg:flex-row items-center gap-3 lg:gap-1'>
-                                                            <NavLink>
+                                                        <>
+                                                            <li>
                                                                 {
                                                                     user?.photoURL ?
                                                                         <Link to='/profile'>
-                                                                            <img className='w-14 p-1 h-14 mx-auto bg-navActive rounded-xl text-center' src={user?.photoURL} alt="" />
+                                                                            <img className='w-14 p-1 h-14 bg-navActive rounded-xl text-center' src={user?.photoURL} alt="" />
                                                                         </Link>
                                                                         :
                                                                         <Link to='/profile' className='text-navActive'>
-                                                                            <FiUserCheck className='w-14 p-1 h-14 mx-auto bg-white rounded-xl text-center'>
+                                                                            <FiUserCheck className='w-14 p-1 h-14 bg-white rounded-xl text-center'>
                                                                             </FiUserCheck>
                                                                         </Link>
                                                                 }
-                                                            </NavLink>
-                                                            <button onClick={handleLogout} className="px-4 py-1 text-lg text-navActive bg-white font-semibold shadow-md rounded-md transition duration-200 hover:bg-navActive hover:text-white focus:shadow-outline focus:outline-none">Logout</button>
-                                                        </div>
+                                                            </li>
+                                                            <li>
+                                                                <NavLink
+                                                                    to="/blog"
+                                                                    aria-label="Product pricing"
+                                                                    className={({ isActive }) =>
+                                                                        isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"
+                                                                    }
+                                                                >
+                                                                    My Review
+                                                                </NavLink>
+                                                            </li>
+                                                            <li>
+                                                                <NavLink
+                                                                    to="/blog"
+                                                                    aria-label="Product pricing"
+                                                                    className={({ isActive }) =>
+                                                                        isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"
+                                                                    }
+                                                                >
+                                                                    Add Service
+                                                                </NavLink>
+                                                            </li>
+                                                            <li>
+                                                                <button onClick={handleLogout}
+                                                                    role="menuitem"
+                                                                    className="w-full inline-flex items-center justify-center px-6 py-2 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl">
+                                                                    Logout
+                                                                </button>
+                                                            </li>
+                                                        </>
                                                         :
-                                                        <NavLink
-                                                            to="/login"
-                                                            className={({ isActive }) =>
-                                                                isActive ? "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-normalColor text-activeColor transition duration-200 rounded-md shadow-md hover:bg-activeColor hover:text-normalColor focus:shadow-outline focus:outline-none text-xl" : "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
-                                                            }
-                                                            aria-label="Sign up"
-                                                        >
-                                                            Login
-                                                        </NavLink>
+                                                        <>
+                                                            <li>
+                                                                <NavLink
+                                                                    to="/login"
+                                                                    className={({ isActive }) =>
+                                                                        isActive ? "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-normalColor text-activeColor transition duration-200 rounded-md shadow-md hover:bg-activeColor hover:text-normalColor focus:shadow-outline focus:outline-none text-xl" : "inline-flex items-center justify-center px-6 py-3 font-medium tracking-wide bg-activeColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor focus:shadow-outline focus:outline-none text-xl"
+                                                                    }
+                                                                    aria-label="Sign up"
+                                                                >
+                                                                    Login
+                                                                </NavLink>
+                                                            </li>
+                                                        </>
+
                                                 }
-                                            </li>
+                                            </>
                                         </ul>
+
                                     </nav>
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
-            </div>
+            </div >
         </div >
     );
 };

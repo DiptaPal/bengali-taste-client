@@ -34,10 +34,6 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const sendVerify = () => {
-        setLoader(true)
-        return sendEmailVerification(auth.currentUser)
-    }
 
     const updateUserProfile = (profile) => {
         setLoader(true)
@@ -69,7 +65,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     },[])
 
-    const authInfo = { user, loader, setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile, sendVerify, logIn, logOut, passwordReset }
+    const authInfo = { user, loader, setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile, logIn, logOut, passwordReset }
 
     return (
         <AuthContext.Provider value={authInfo}>

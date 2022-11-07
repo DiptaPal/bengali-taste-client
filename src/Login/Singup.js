@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Singup = () => {
-    const {setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile, sendVerify } = useContext(AuthContext);
+    const {setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [accept, setAccept] = useState(false);
-
+    useTitle('Register')
 
     let from = location.state?.from?.pathname || "/";
     const [error, setError] = useState();
@@ -38,7 +39,6 @@ const Singup = () => {
         createUser(email, password)
             .then(result => {
                 handleUpdateUser(name, photo_url);
-                handleEmailVerification();
                 toast.success('Registration Successful!', { autoClose: 1000 })
                 console.log(result.user);
                 form.reset();
@@ -60,18 +60,6 @@ const Singup = () => {
                 console.log(error.message);
             })
     }
-
-    const handleEmailVerification = () => {
-        sendVerify()
-            .then(() => {
-                toast.info("Email verification sent!", { autoClose: 1000 })
-            })
-            .catch(error => {
-                setError(error.message)
-                toast.error(error.message, { autoClose: 1000 })
-            })
-    }
-
 
     const handleGoogleSingIn = () => {
         singInWithGoogle()

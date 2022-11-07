@@ -4,8 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import {Autoplay, Navigation } from "swiper";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import slider1 from '../../assets/image/slider/slider1.jpeg'
-import slider2 from '../../assets/image/slider/slider2.jpeg'
+import slider2 from '../../assets/image/slider/slider1.jpeg'
+import slider1 from '../../assets/image/slider/slider2.jpeg'
 import slider3 from '../../assets/image/slider/slider3.jpeg'
 import Heros from './Heros';
 import './Hero.css'
@@ -32,7 +32,7 @@ const Hero = () => {
 
 
     return (
-        <div className='relative w-full my-10 px-4'>
+        <div className='relative w-full my-10 px-4 -z-50'>
             <button
                 ref={prevRef}
                 className='absolute p-[18px] bg-normalColor rounded-full -left-5 top-[49%] z-50'
@@ -57,7 +57,7 @@ const Hero = () => {
                     swiper.navigation.update();
                 }}
                 autoplay={{
-                    delay: 3000,
+                    delay: 4000,
                     disableOnInteraction: false,
                 }}
                 speed={1000}
