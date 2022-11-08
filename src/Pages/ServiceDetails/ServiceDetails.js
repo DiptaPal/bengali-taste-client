@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import AllReviews from '../AllReviews/AllReviews';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
 const ServiceDetails = () => {
@@ -9,9 +10,18 @@ const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const service = useLoaderData();
     const { title, url, price, description } = service;
+
+
+    const [reviews, setReviews] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+        .then(res => res.json())
+        .then(data => setReviews(data))
+    }, [reviews])
+
     return (
         <div className='my-20'>
-            <div className='max-w-6xl mx-auto'>
+            <div className='mx-auto'>
                 <img src={url} alt="" className='w-full object-cover object-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl ' />
                 <div className='flex justify-between items-center my-6'>
                     <h1 className='text-3xl sm:text-5xl font-bold text-activeColor'>{title}</h1>
@@ -22,8 +32,13 @@ const ServiceDetails = () => {
                 </p>
             </div>
             <div className='my-20'>
-                <div>
-
+                <div className=''>
+                    {
+                        reviews.map(review => <AllReviews
+                        key={review._id}
+                        review={review}
+                        ></AllReviews>)
+                    }
                 </div>
                 <div>
                     {
