@@ -123,7 +123,7 @@ const EditReview = () => {
                         <button
                             type='submit'
                             className="my-10 uppercase text-sm font-bold tracking-wide bg-activeColor text-gray-100 py-4 rounded-md w-full focus:outline-none focus:shadow-outline">
-                            Give Review
+                            Edit Review
                         </button>
                     </div>
                 </form>

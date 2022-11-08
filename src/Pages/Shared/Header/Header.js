@@ -15,6 +15,7 @@ const Header = () => {
         logOut()
             .then(() => {
                 toast.success("Logout successful !", { autoClose: 1000 })
+                localStorage.removeItem('bengali-taste')
                 navigate('/')
             })
             .catch(error => {

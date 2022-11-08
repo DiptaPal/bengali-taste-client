@@ -26,7 +26,7 @@ const AllReviews = ({review}) => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm text-gray-600">
-                <p>{message}</p>
+                <p className='text-xl'>{message}</p>
             </div>
         </div>
     );

@@ -10,11 +10,21 @@ const MyReviews = () => {
     const [review, setReview] = useState([])
     const { user, logout } = useContext(AuthContext)
     useTitle('MyReviews')
+
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setReview(data))
-    }, [user?.email])
+        fetch(`http://localhost:5000/myReviews?email=${user?.email}`,{
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('bengali-taste')}`
+            }
+        })
+            .then(res => {
+                if(res.status === 401 || res.status === 403){
+                    logout()
+                }
+               return res.json()
+            })
+            .then(data => {setReview(data)})
+    }, [user?.email, logout])
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -30,7 +40,7 @@ const MyReviews = () => {
                 if (result.isConfirmed) {
                     Swal.fire(
                         'Deleted!',
-                        'Your file has been deleted.',
+                        'Your Review has been deleted.',
                         'success'
                     )
                     fetch(`http://localhost:5000/reviews/${id}`, {
