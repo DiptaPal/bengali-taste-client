@@ -5,6 +5,7 @@ import Singup from "../../Login/Singup";
 import AllServices from "../../Pages/AllServices/AllServices";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
+import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import AddService from "../AddService/AddService";
 
 
@@ -37,6 +38,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>
+            },
+            {
+                path: '/services/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             }
 
         ]
