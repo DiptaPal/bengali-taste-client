@@ -50,9 +50,18 @@ const MyReviews = () => {
 
     return (
         <div>
-            <div className='my-10 border-b-2 border-activeColor w-[85%] md:w-[70%] mx-auto'>
-                <h2 className='text-3xl text-center text-activeColor font-bold mb-3'>Your All Valuable Review is Here({review.length})</h2>
-            </div>
+            <>
+                {
+                    review.length === 0 ?
+                        <div className='h-[80vh] flex justify-center items-center'>
+                            <h2 className='text-3xl text-center text-activeColor font-bold mb-3'>No reviews were added</h2>
+                        </div>
+                        :
+                        <div className='my-10 border-b-2 border-activeColor w-[85%] md:w-[70%] mx-auto'>
+                            <h2 className='text-3xl text-center text-activeColor font-bold mb-3'>Your All Valuable Review is Here({review.length})</h2>
+                        </div>
+                }
+            </>
             <div>
                 {
                     review.map(myReview => <MyReview
@@ -62,7 +71,7 @@ const MyReviews = () => {
                     ></MyReview>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -82,9 +82,9 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
                 </div>
                 <form onSubmit={handleReview} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
                     <div className="mt-8">
-                        <div>
-                            <h2 className='uppercase text-sm text-normalColor font-bold'>Give Stars</h2>
-                            <div className='flex gap-4 mt-2'>
+                        <div className='flex flex-col justify-center items-center'>
+                            <h2 className='uppercase pb-2 text-lg text-black font-bold'>Give Stars</h2>
+                            <div className='flex gap-3 mt-2'>
                                 {stars.map((_, index) => {
                                     return (
                                         <FaStar

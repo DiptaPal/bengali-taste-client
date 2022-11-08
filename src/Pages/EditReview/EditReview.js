@@ -81,9 +81,9 @@ const EditReview = () => {
                 </div>
                 <form onSubmit={handleUpdate} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
                     <div className="mt-8">
-                        <div>
-                            <h2 className='uppercase text-sm text-normalColor font-bold'>Give Stars</h2>
-                            <div className='flex gap-4 mt-2'>
+                        <div className='flex justify-center flex-col items-center'>
+                            <h2 className='uppercase text-lg pb-2 text-black font-bold'>Give Stars</h2>
+                            <div className='flex gap-3 mt-2'>
                                 {stars.map((_, index) => {
                                     return (
                                         <FaStar

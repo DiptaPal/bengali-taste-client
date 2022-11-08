@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 const MyReview = ({ myReview, handleDelete }) => {
-    const { _id, name, rating, photoUrl, message, date } = myReview
+    const { _id, name, rating, photoUrl, message, date, serviceTitle } = myReview
     const time = (new Date() - new Date(date));
     const reviewTime = Math.floor((time / 1000) / 60);
 
@@ -39,7 +39,8 @@ const MyReview = ({ myReview, handleDelete }) => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm text-gray-600">
-                <p>{message}</p>
+                <h2 className='text-xl font-bold mb-2'><span className='font-normal'>Service Name: </span>{serviceTitle}</h2>
+                <p className='text-xl'>My Message: {message}</p>
             </div>
         </div>
     );

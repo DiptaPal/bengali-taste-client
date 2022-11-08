@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Context/AuthProvider';
+import ScrollToTop from "react-scroll-to-top";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <AuthProvider>
       <ToastContainer position='top-center' />
       <App />
+      <ScrollToTop smooth />
     </AuthProvider>
   </React.StrictMode>
 );

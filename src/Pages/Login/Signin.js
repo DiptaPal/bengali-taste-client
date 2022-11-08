@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../../Context/AuthProvider';
+import { setAuthToken } from '../../API/Auth';
 
 const Signin = () => {
     const { setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, logIn, passwordReset } = useContext(AuthContext);
@@ -22,18 +23,16 @@ const Signin = () => {
         const email = form.email.value;
         const password = form.password.value;
         logIn(email, password)
-            .then((result) => {
+            .then(result => {
                 setError('')
                 form.reset()
-                if (result.user.emailVerified) {
-                    navigate(from, { replace: true });
-                    toast.success("Log in success!", { autoClose: 1000 })
-                }
-                else {
-                    navigate(from, { replace: true });
-                    setError(error.message)
-                    toast.error("Please verify your email !", { autoClose: 2000 })
-                }
+
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
+                navigate(from, { replace: true });
+                toast.success("Log in success!", { autoClose: 1000 })
             })
             .catch(error => {
                 setError(error.message)
@@ -63,6 +62,10 @@ const Signin = () => {
     const handleGoogleSingIn = () => {
         singInWithGoogle()
             .then(result => {
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 1000 })
                 navigate(from, { replace: true });
             })
@@ -73,6 +76,10 @@ const Signin = () => {
     const handleTwitterSingIn = () => {
         signInWithTwitter()
             .then(result => {
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 1000 })
                 navigate(from, { replace: true });
             })
@@ -84,6 +91,10 @@ const Signin = () => {
     const handleGithubSingIn = () => {
         signInWithGithub()
             .then(result => {
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 700 })
                 navigate(from, { replace: true });
             })
@@ -93,7 +104,7 @@ const Signin = () => {
     }
 
     return (
-        <div  className='flex justify-center items-center my-28'>
+        <div className='flex justify-center items-center my-28'>
             <div className="w-full max-w-lg p-8 space-y-3 rounded-xl shadow-lg text-black border-activeColor border bg-gray-200">
                 <h1 className="text-4xl font-bold text-center text-navActive">Login</h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">

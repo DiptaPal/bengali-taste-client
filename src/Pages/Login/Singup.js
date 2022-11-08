@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../API/Auth';
 
 const Singup = () => {
     const {setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile } = useContext(AuthContext);
@@ -39,6 +40,11 @@ const Singup = () => {
         createUser(email, password)
             .then(result => {
                 handleUpdateUser(name, photo_url);
+
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success('Registration Successful!', { autoClose: 1000 })
                 form.reset();
                 navigate('/home');
@@ -63,6 +69,10 @@ const Singup = () => {
     const handleGoogleSingIn = () => {
         singInWithGoogle()
             .then(result => {
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 1000 })
                 navigate(from, { replace: true });
             })
@@ -74,6 +84,10 @@ const Singup = () => {
     const handleTwitterSingIn = () => {
         signInWithTwitter()
             .then(result => {
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 1000 })
                 navigate(from, { replace: true });
             })
@@ -85,6 +99,11 @@ const Singup = () => {
     const handleGithubSingIn = () => {
         signInWithGithub()
             .then(result => {
+
+                //get jwt token
+                const user = result.user;
+                setAuthToken(user)
+
                 toast.success("Login success!", { autoClose: 700 })
                 navigate(from, { replace: true });
             })
