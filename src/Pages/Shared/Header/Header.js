@@ -23,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <div onClick={() => setShow(!show)} className=''>
+        <div className=''>
             <div className="py-5">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
@@ -34,7 +34,7 @@ const Header = () => {
                         >
                             <img src={logo} className="h-auto w-20" alt="" />
                             <span className="ml-2 text-2xl font-bold tracking-wide mr-6 text-activeColor">
-                                Bangoli Taste
+                                Bengali Taste
                             </span>
                         </NavLink>
                         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -170,7 +170,7 @@ const Header = () => {
                             </svg>
                         </button>
                         {isMenuOpen && (
-                            <div className="absolute top-0 left-0 w-full">
+                            <div className="absolute top-0 left-0 w-full z-50">
                                 <div className="p-5 bg-[#f5f4f0] border rounded shadow-sm">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
@@ -182,7 +182,7 @@ const Header = () => {
 
                                                 <img src={logo} className="h-auto w-16" alt="" />
                                                 <span className="ml-2 text-3xl font-extrabold tracking-wide text-activeColor">
-                                                    Bangoli Taste
+                                                    Bengali Taste
                                                 </span>
                                             </NavLink>
                                         </div>
@@ -215,7 +215,7 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to="/service"
+                                                    to="/services"
                                                     aria-label="courses"
                                                     className={({ isActive }) =>
                                                         isActive ? "font-medium tracking-wide text-navActive hover:text-navColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-navColor hover:text-navActive transition-colors duration-300 text-xl"

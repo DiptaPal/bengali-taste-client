@@ -1,5 +1,6 @@
 import React from 'react';
 import useTitle from '../../hooks/useTitle';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
     useTitle('Add Service')
@@ -17,6 +18,20 @@ const AddService = () => {
             url,
             description
         }
+        fetch('http://localhost:5000/services',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                form.reset()
+                toast.success('Service Insert Successfully', {autoClose: 800})
+            }
+        })
     }
     return (
         <form onSubmit={handleAddService} className='my-10'>

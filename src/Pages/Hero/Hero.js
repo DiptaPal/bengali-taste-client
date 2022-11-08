@@ -32,7 +32,7 @@ const Hero = () => {
 
 
     return (
-        <div className='relative w-full my-10 px-4 -z-50'>
+        <div className='relative w-full my-10 px-4 z-0'>
             <button
                 ref={prevRef}
                 className='absolute p-[18px] bg-normalColor rounded-full -left-5 top-[49%] z-50'
