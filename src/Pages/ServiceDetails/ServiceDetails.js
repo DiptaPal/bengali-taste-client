@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import AllReviews from '../AllReviews/AllReviews';
@@ -9,15 +9,15 @@ const ServiceDetails = () => {
     useTitle('Service Details')
     const { user } = useContext(AuthContext)
     const service = useLoaderData();
-    const { title, url, price, description } = service;
+    const { _id, title, url, price, description } = service;
 
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
-        .then(res => res.json())
-        .then(data => setReviews(data))
-    }, [reviews])
+        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [reviews, _id])
 
     return (
         <div className='my-20'>
@@ -35,8 +35,8 @@ const ServiceDetails = () => {
                 <div className=''>
                     {
                         reviews.map(review => <AllReviews
-                        key={review._id}
-                        review={review}
+                            key={review._id}
+                            review={review}
                         ></AllReviews>)
                     }
                 </div>
@@ -44,15 +44,17 @@ const ServiceDetails = () => {
                     {
                         user?.uid ?
                             <div>
-                                <ReviewForm 
-                                user={user}
-                                service={service}
+                                <ReviewForm
+                                    user={user}
+                                    service={service}
                                 ></ReviewForm>
                             </div>
                             :
-                            <h2 className='text-2xl sm:text-4xl font-bold text-center py-4 bg-activeColor text-white rounded-md w-full sm:w-[72%] mx-auto'>
-                                Please login to add a review
-                            </h2>
+                            <button className='block text-2xl sm:text-4xl font-bold text-center py-4 bg-activeColor text-white rounded-md w-full sm:w-[72%] mx-auto'>
+                                <Link to='/login' >
+                                    Please login to add a review
+                                </Link>
+                            </button>
                     }
                 </div>
             </div>

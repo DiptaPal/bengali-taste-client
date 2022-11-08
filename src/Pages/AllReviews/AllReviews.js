@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const AllReviews = ({review}) => {
+
     const {name,rating,photoUrl, message, date} = review
     const time = (new Date() - new Date(date));
     const reviewTime = Math.floor((time / 1000) / 60);
+    
     return (
         <div className="container flex flex-col w-full max-w-5xl p-6 mx-auto divide-y rounded-md bg-white text-normalColor mb-10">
             <div className="flex justify-between p-4">

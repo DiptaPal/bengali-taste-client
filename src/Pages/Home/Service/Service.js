@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import useTitle from '../../../hooks/useTitle';
 
 const Service = ({ service }) => {
     const { title, price, url, description, _id } = service;
-    useTitle('Service')
     return (
         <div>
             <PhotoProvider>

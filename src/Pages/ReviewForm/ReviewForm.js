@@ -10,7 +10,7 @@ const colors = {
 
 };
 
-const ReviewForm = ({user, service}) => {
+const ReviewForm = ({user, service, handleServiceBaseReview}) => {
 
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);

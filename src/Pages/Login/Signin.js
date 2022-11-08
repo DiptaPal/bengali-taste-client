@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
-import { AuthContext } from '../Context/AuthProvider';
-import useTitle from '../hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Signin = () => {
     const { setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, logIn, passwordReset } = useContext(AuthContext);

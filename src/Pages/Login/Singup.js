@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
-import { AuthContext } from '../Context/AuthProvider';
-import useTitle from '../hooks/useTitle';
+import { AuthContext } from '../../Context/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Singup = () => {
     const {setLoader, singInWithGoogle, signInWithGithub, signInWithTwitter, createUser, updateUserProfile } = useContext(AuthContext);
@@ -40,7 +40,6 @@ const Singup = () => {
             .then(result => {
                 handleUpdateUser(name, photo_url);
                 toast.success('Registration Successful!', { autoClose: 1000 })
-                console.log(result.user);
                 form.reset();
                 navigate('/home');
             })
@@ -123,7 +122,7 @@ const Singup = () => {
                     <div className='space-y-2'>
                         <div className='flex items-start mb-4'>
                             <input id="checkbox" onClick={handleAccepted} className="cursor-pointer h-5 w-5" type="checkbox"/>
-                                <label htmlFor="checkbox" className="cursor-pointer text-sm ml-3 font-medium text-gray-900">I agree to the <Link to="/terms&conditions" className="text-blue-600 hover:underline">terms and conditions</Link></label>
+                                <label htmlFor="checkbox" className="cursor-pointer text-sm ml-3 font-medium text-gray-900">I agree to the <Link className="text-blue-600 hover:underline">terms and conditions</Link></label>
                         </div>
                     </div>
                     <div>
