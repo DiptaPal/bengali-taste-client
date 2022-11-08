@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://bengali-taste-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/myReview',
@@ -58,7 +58,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/edit/:id',
                 element: <EditReview></EditReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/editReview/${params.id}`)
+                loader: ({params}) => fetch(`https://bengali-taste-server.vercel.app/editReview/${params.id}`)
             }
 
         ]

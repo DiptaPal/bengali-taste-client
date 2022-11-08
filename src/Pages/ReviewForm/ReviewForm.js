@@ -49,7 +49,7 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
             date: new Date() 
         }
         
-        fetch('http://localhost:5000/reviews',{
+        fetch('https://bengali-taste-server.vercel.app/reviews',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

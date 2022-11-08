@@ -12,7 +12,7 @@ const MyReviews = () => {
     useTitle('MyReviews')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`,{
+        fetch(`https://bengali-taste-server.vercel.app/myReviews?email=${user?.email}`,{
             headers:{
                 authorization: `Bearer ${localStorage.getItem('bengali-taste')}`
             }
@@ -43,7 +43,7 @@ const MyReviews = () => {
                         'Your Review has been deleted.',
                         'success'
                     )
-                    fetch(`http://localhost:5000/reviews/${id}`, {
+                    fetch(`https://bengali-taste-server.vercel.app/reviews/${id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())

@@ -49,7 +49,7 @@ const EditReview = () => {
             rating
         }
 
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://bengali-taste-server.vercel.app/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
