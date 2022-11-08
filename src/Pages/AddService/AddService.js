@@ -64,7 +64,6 @@ const AddService = () => {
                             Add Service
                         </button>
                     </div>
-
                 </div>
             </div>
         </form>

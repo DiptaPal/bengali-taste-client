@@ -5,6 +5,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
     const { title, price, url, description, _id } = service;
+    console.log(description.length);
     return (
         <div>
             <PhotoProvider>
@@ -21,7 +22,7 @@ const Service = ({ service }) => {
                             <p className='text-2xl text-activeColor font-semibold mb-2'>Price: ${price}</p>
                             <p className='text-justify'>
                                 {description.length > 100 ?
-                                    `${description.split(0, 100)} . . .`
+                                    `${description.slice(0, 100)} . . .`
                                     :
                                     description
                                 }
