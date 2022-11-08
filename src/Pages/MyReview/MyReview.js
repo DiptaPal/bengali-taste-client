@@ -1,17 +1,18 @@
 import React from 'react';
 import { BiEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-const MyReview = ({ myReview,handleUpdate, handleDelete }) => {
+const MyReview = ({ myReview, handleDelete }) => {
     const { _id, name, rating, photoUrl, message, date } = myReview
     const time = (new Date() - new Date(date));
     const reviewTime = Math.floor((time / 1000) / 60);
 
-    
+
     return (
         <div className="container flex flex-col w-full max-w-5xl p-6 mx-auto divide-y rounded-md bg-white text-normalColor mb-10">
-            <div className="flex justify-between p-4">
-                <div className='flex gap-8'>
+            <div className="flex flex-wrap gap-4 sm:gap-0 justify-between p-4">
+                <div className='flex items-start gap-4'>
                     <div className="flex space-x-4">
                         <div>
                             <img src={photoUrl} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
@@ -28,10 +29,10 @@ const MyReview = ({ myReview,handleUpdate, handleDelete }) => {
                         <span className="text-xl font-bold">{rating}</span>
                     </div>
                 </div>
-                <div className="flex items-center gap-4">
-                    <button>
+                <div className="flex justify-between sm:justify-center items-center gap-4 w-full sm:w-auto">
+                    <Link to={`/edit/${_id}`}>
                         <BiEdit className='text-4xl text-blue-500'></BiEdit>
-                    </button>
+                    </Link>
                     <button onClick={() => handleDelete(_id)}>
                         <MdDeleteForever className='text-4xl text-red-500'></MdDeleteForever>
                     </button>

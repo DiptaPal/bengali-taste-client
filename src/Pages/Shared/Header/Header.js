@@ -254,7 +254,7 @@ const Header = () => {
                                                             </li>
                                                             <li>
                                                                 <NavLink
-                                                                    to="/blog"
+                                                                    to="/myReview"
                                                                     aria-label="Product pricing"
                                                                     className={({ isActive }) =>
                                                                         isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"
@@ -265,7 +265,7 @@ const Header = () => {
                                                             </li>
                                                             <li>
                                                                 <NavLink
-                                                                    to="/blog"
+                                                                    to="/addService"
                                                                     aria-label="Product pricing"
                                                                     className={({ isActive }) =>
                                                                         isActive ? "font-medium tracking-wide text-activeColor hover:text-normalColor transition-colors duration-300 text-xl" : "font-medium tracking-wide text-normalColor hover:text-activeColor transition-colors duration-300 text-xl"

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import review from "../../assets/image/review.json"
+import logo from '../../assets/image/review.json'
 import Lottie from 'lottie-react'
+
 import { FaStar } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const colors = {
     orange: "#FFBA5A",
@@ -10,7 +13,9 @@ const colors = {
 
 };
 
-const ReviewForm = ({user, service, handleServiceBaseReview}) => {
+const EditReview = () => {
+    useTitle('Edit Review')
+    const navigate = useNavigate();
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
@@ -27,48 +32,42 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
         setHoverValue(undefined)
     }
 
-    const {_id, title} = service
+    const review = useLoaderData();
+    const { _id, name, email, message } = review;
 
-    const email = user.email;
-    const name = user.displayName;
-    const photoUrl = user.photoURL;
-    
-
-    const handleReview = event =>{
+    const handleUpdate = event => {
         event.preventDefault();
+
         const form = event.target;
         const message = form.review.value;
-        const review = {
-            rating : currentValue,
+        const date = new Date();
+        const rating = currentValue;
+
+        const updatedReview = {
             message,
-            name,
-            email,
-            photoUrl,
-            service: _id,
-            serviceTitle: title,
-            date: new Date() 
+            date,
+            rating
         }
-        
-        fetch('http://localhost:5000/reviews',{
-            method: 'POST',
+
+        fetch(`http://localhost:5000/reviews/${_id}`, {
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(updatedReview)
         })
-        .then(res => res.json())
-        .then(data =>{
-            if(data.acknowledged){
-                form.reset()
-                toast.success('Review Successful', {autoClose: 800})
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Review Update Successful',{autoClose: 800})
+                    navigate('/myReview')
+                    form.reset();
+                }
+            })
     }
+
     return (
         <div className=" bg-transparent text-gray-100 py-12">
-            <div>
-                <h2 className='text-3xl text-activeColor text-center underline px-10'>Give Your Review</h2>
-            </div>
             <div
                 className="mt-24 px-8 grid gap-8 grid-cols-1 lg:grid-cols-2 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow">
                 <div className="flex flex-col justify-between">
@@ -77,10 +76,10 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
 
                     </div>
                     <div className='max-h-[500px] max-w-[500px] mx-auto'>
-                        <Lottie animationData={review} loop={true} />
+                        <Lottie animationData={logo} loop={true} />
                     </div>
                 </div>
-                <form onSubmit={handleReview} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
+                <form onSubmit={handleUpdate} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
                     <div className="mt-8">
                         <div>
                             <h2 className='uppercase text-sm text-normalColor font-bold'>Give Stars</h2>
@@ -107,18 +106,18 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
                     <div>
                         <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
                         <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
-                         defaultValue={name} readOnly   type="text" placeholder="" />
+                            defaultValue={name} readOnly type="text" placeholder="" />
                     </div>
                     <div className="mt-8">
                         <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
                         <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
-                         defaultValue={email} readOnly  type="email" />
+                            defaultValue={email} readOnly type="email" />
                     </div>
                     <div className="mt-8">
                         <div>
                             <span className="uppercase text-sm text-normalColor font-bold">Message</span>
                             <textarea
-                                className="w-full h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name='review' required>
+                                className="w-full text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" defaultValue={message} name='review' required>
                             </textarea>
                         </div>
                         <button
@@ -129,9 +128,8 @@ const ReviewForm = ({user, service, handleServiceBaseReview}) => {
                     </div>
                 </form>
             </div>
-
         </div>
     );
 };
 
-export default ReviewForm;
+export default EditReview;
