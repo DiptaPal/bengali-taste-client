@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const colors = {
     orange: "#FFBA5A",
-    grey: "#ffffff"
+    grey: "#9b9e9c"
 
 };
 
@@ -69,10 +69,10 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
     return (
         <div className=" bg-transparent text-gray-100 py-12">
             <div>
-                <h2 className='text-3xl text-activeColor text-center underline px-10'>Give Your Review</h2>
+                <h2 className='uppercase text-3xl text-activeColor text-center underline px-10'>Give Your Review</h2>
             </div>
             <div
-                className="mt-24 px-8 grid gap-8 grid-cols-1 lg:grid-cols-2 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow">
+                className="mt-24 px-2 sm:px-8 grid gap-8 grid-cols-1 lg:grid-cols-2 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow">
                 <div className="flex flex-col justify-between">
                     <div>
                         <h2 className="text-center lg:text-left text-4xl lg:text-5xl font-bold leading-tight mt-10">Your review is very important to me</h2>
@@ -82,16 +82,16 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
                         <Lottie animationData={reviewLogo} loop={true} />
                     </div>
                 </div>
-                <form onSubmit={handleReview} className="flex flex-col gap-2 justify-center bg-gray-600 border border-activeColor px-4 rounded-md">
+                <form onSubmit={handleReview} className="flex flex-col gap-2 justify-center bg-white shadow-md border border-activeColor px-8 rounded-md">
                     <div className="mt-8">
                         <div className='flex flex-col justify-center items-center'>
-                            <h2 className='uppercase pb-2 text-lg text-white font-bold'>Give Stars</h2>
+                            <h2 className='uppercase pb-2 text-lg text-black font-bold'>Give Stars</h2>
                             <div className='flex gap-3 mt-2'>
                                 {stars.map((_, index) => {
                                     return (
                                         <FaStar
                                             key={index}
-                                            size={24}
+                                            size={32}
                                             onClick={() => handleClick(index + 1)}
                                             onMouseOver={() => handleMouseOver(index + 1)}
                                             onMouseLeave={handleMouseLeave}
@@ -108,19 +108,19 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
                     </div>
                     <div>
                         <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
-                        <input className="w-full bg-white text-gray-900 p-4 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input className="w-full border border-activeColor bg-white text-gray-900 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                             defaultValue={name} readOnly type="text" placeholder="" />
                     </div>
                     <div className="mt-1">
                         <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
-                        <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input className="w-full border bg-white border-activeColor text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                             defaultValue={email} readOnly type="email" />
                     </div>
                     <div className="mt-1">
                         <div>
                             <span className="uppercase text-sm text-normalColor font-bold">Message</span>
                             <textarea
-                                className="w-full text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none"  name='review' required>
+                                className="w-full border border-activeColor text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none"  name='review' required>
                             </textarea>
                         </div>
                         <button

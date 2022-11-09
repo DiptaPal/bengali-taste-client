@@ -29,7 +29,7 @@ const ServiceDetails = () => {
     }
 
     return (
-        <div className='my-20'>
+        <div className='my-20 lg:mx-32'>
             <div className='mx-auto'>
                 <img src={url} alt="" className='w-full object-cover object-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl ' />
                 <div className='flex justify-between items-center my-6'>
@@ -59,7 +59,7 @@ const ServiceDetails = () => {
                             </button>
                     }
                 </div>
-                <div className=''>
+                <div className='mt-10'>
                     {
                         reviews.map(review => <AllReviews
                             key={review._id}

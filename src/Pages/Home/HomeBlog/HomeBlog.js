@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay } from "swiper";
 
 
 
@@ -23,7 +23,7 @@ const HomeBlog = () => {
                     loop={true}
 
                     autoplay={{
-                        delay: 2500,
+                        delay: 3000,
                         disableOnInteraction: false,
                     }}
                     breakpoints={{

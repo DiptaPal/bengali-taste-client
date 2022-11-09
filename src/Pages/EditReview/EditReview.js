@@ -9,7 +9,7 @@ import useTitle from '../../hooks/useTitle';
 
 const colors = {
     orange: "#FFBA5A",
-    grey: "#ffffff"
+    grey: "#9b9e9c"
 
 };
 
@@ -59,7 +59,7 @@ const EditReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast.success('Review Update Successful',{autoClose: 800})
+                    toast.success('Review Update Successful', { autoClose: 800 })
                     navigate('/myReview')
                     form.reset();
                 }
@@ -67,66 +67,69 @@ const EditReview = () => {
     }
 
     return (
-        <div className=" bg-transparent text-gray-100 py-12">
-            <div
-                className="mt-24 px-8 grid gap-8 grid-cols-1 lg:grid-cols-2 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow">
-                <div className="flex flex-col justify-between">
-                    <div>
-                        <h2 className="text-center lg:text-left text-4xl lg:text-5xl font-bold leading-tight mt-10">Your review is very important to me</h2>
+        <div>
+            <h2 className='mt-24 uppercase text-3xl text-activeColor text-center underline px-10'>Edit Your Review</h2>
+            <div className=" bg-transparent text-gray-100 py-12">
+                <div
+                    className="px-8 grid gap-8 grid-cols-1 lg:grid-cols-2 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow">
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <h2 className="text-center lg:text-left text-4xl lg:text-5xl font-bold leading-tight mt-10">Your review is very important to me</h2>
 
+                        </div>
+                        <div className='max-h-[500px] max-w-[500px] mx-auto'>
+                            <Lottie animationData={logo} loop={true} />
+                        </div>
                     </div>
-                    <div className='max-h-[500px] max-w-[500px] mx-auto'>
-                        <Lottie animationData={logo} loop={true} />
-                    </div>
-                </div>
-                <form onSubmit={handleUpdate} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
-                    <div className="mt-8">
-                        <div className='flex justify-center flex-col items-center'>
-                            <h2 className='uppercase text-lg pb-2 text-black font-bold'>Give Stars</h2>
-                            <div className='flex gap-3 mt-2'>
-                                {stars.map((_, index) => {
-                                    return (
-                                        <FaStar
-                                            key={index}
-                                            size={24}
-                                            onClick={() => handleClick(index + 1)}
-                                            onMouseOver={() => handleMouseOver(index + 1)}
-                                            onMouseLeave={handleMouseLeave}
-                                            color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                                            style={{
-                                                marginRight: 10,
-                                                cursor: "pointer"
-                                            }}
-                                        />
-                                    )
-                                })}
+                    <form onSubmit={handleUpdate} className="flex flex-col gap-2 justify-center bg-white shadow-md border border-activeColor px-8 rounded-md">
+                        <div className="mt-8">
+                            <div className='flex justify-center flex-col items-center'>
+                                <h2 className='uppercase pb-2 text-lg text-black font-bold'>Give Stars</h2>
+                                <div className='flex gap-3 mt-2'>
+                                    {stars.map((_, index) => {
+                                        return (
+                                            <FaStar
+                                                key={index}
+                                                size={32}
+                                                onClick={() => handleClick(index + 1)}
+                                                onMouseOver={() => handleMouseOver(index + 1)}
+                                                onMouseLeave={handleMouseLeave}
+                                                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                                                style={{
+                                                    marginRight: 10,
+                                                    cursor: "pointer"
+                                                }}
+                                            />
+                                        )
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
-                        <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
-                            defaultValue={name} readOnly type="text" placeholder="" />
-                    </div>
-                    <div className="mt-8">
-                        <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
-                        <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
-                            defaultValue={email} readOnly type="email" />
-                    </div>
-                    <div className="mt-8">
                         <div>
-                            <span className="uppercase text-sm text-normalColor font-bold">Message</span>
-                            <textarea
-                                className="w-full text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" defaultValue={message} name='review' required>
-                            </textarea>
+                            <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
+                            <input className="w-full border border-activeColor bg-white text-gray-900 p-4 rounded-lg focus:outline-none focus:shadow-outline"
+                                defaultValue={name} readOnly type="text" placeholder="" />
                         </div>
-                        <button
-                            type='submit'
-                            className="my-10 uppercase text-sm font-bold tracking-wide bg-activeColor text-gray-100 py-4 rounded-md w-full focus:outline-none focus:shadow-outline">
-                            Edit Review
-                        </button>
-                    </div>
-                </form>
+                        <div className="mt-1">
+                            <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
+                            <input className="w-full border bg-white border-activeColor text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
+                                defaultValue={email} readOnly type="email" />
+                        </div>
+                        <div className="mt-1">
+                            <div>
+                                <span className="uppercase text-sm text-normalColor font-bold">Message</span>
+                                <textarea
+                                    className="w-full border border-activeColor text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none" defaultValue={message} name='review' required>
+                                </textarea>
+                            </div>
+                            <button
+                                type='submit'
+                                className="my-10 uppercase text-sm font-bold tracking-wide bg-activeColor text-gray-100 py-4 rounded-md w-full focus:outline-none focus:shadow-outline">
+                                Edit Review
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );
