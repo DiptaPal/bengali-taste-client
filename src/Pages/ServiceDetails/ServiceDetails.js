@@ -5,6 +5,7 @@ import useTitle from '../../hooks/useTitle';
 import AllReviews from '../AllReviews/AllReviews';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
+
 const ServiceDetails = () => {
     useTitle('Service Details')
     const { user } = useContext(AuthContext)
@@ -17,7 +18,15 @@ const ServiceDetails = () => {
         fetch(`https://bengali-taste-server.vercel.app/reviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [reviews, _id])
+    }, [_id])
+
+
+    const handleShowReview = (id) => {
+        fetch(`https://bengali-taste-server.vercel.app/reviews?serviceId=${id}`,{
+        })
+        .then(res => res.json())
+        .then(data => setReviews(data))
+    }
 
     return (
         <div className='my-20'>
@@ -47,6 +56,7 @@ const ServiceDetails = () => {
                                 <ReviewForm
                                     user={user}
                                     service={service}
+                                    handleShowReview={handleShowReview}
                                 ></ReviewForm>
                             </div>
                             :

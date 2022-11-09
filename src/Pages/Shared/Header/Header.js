@@ -24,7 +24,7 @@ const Header = () => {
     }
 
     return (
-        <div className=''>
+        <div className='mb-10'>
             <div className="py-5">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">

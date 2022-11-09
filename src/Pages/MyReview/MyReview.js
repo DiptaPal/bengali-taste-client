@@ -2,11 +2,17 @@ import React from 'react';
 import { BiEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns'
 
 const MyReview = ({ myReview, handleDelete }) => {
     const { _id, name, rating, photoUrl, message, date, serviceTitle } = myReview
-    const time = (new Date() - new Date(date));
-    const reviewTime = Math.floor((time / 1000) / 60);
+    // const time = (new Date() - new Date(date));
+    // const reviewTime = Math.floor((time / 1000) / 60);
+
+    const reviewTime = formatDistanceToNow(
+        new Date(date),
+        {includeSeconds: true}
+      )
 
 
     return (
@@ -19,7 +25,7 @@ const MyReview = ({ myReview, handleDelete }) => {
                         </div>
                         <div>
                             <h4 className="font-bold">{name}</h4>
-                            <span className="text-xs text-gray-600">{reviewTime} mins ago</span>
+                            <span className="text-xs text-gray-600">{reviewTime} ago</span>
                         </div>
                     </div>
                     <div className='flex items-center space-x-2 text-yellow-500'>

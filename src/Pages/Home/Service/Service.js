@@ -9,7 +9,7 @@ const Service = ({ service }) => {
     return (
         <div>
             <PhotoProvider>
-                <div className="p-6 rounded-md card card-compact bg-white shadow-md min-h-full">
+                <div className="drop-shadow-md hover:scale-105 transition-all duration-200 p-6 rounded-md card card-compact bg-white shadow-md min-h-full">
                     <figure>
                         <PhotoView src={url}
                         >

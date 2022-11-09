@@ -1,10 +1,15 @@
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns'
 
 const AllReviews = ({review}) => {
 
     const {name,rating,photoUrl, message, date} = review
-    const time = (new Date() - new Date(date));
-    const reviewTime = Math.floor((time / 1000) / 60);
+    // const time = (new Date() - new Date(date));
+    // const reviewTime = Math.floor((time / 1000) / 60);
+    const reviewTime = formatDistanceToNow(
+        new Date(date),
+        {includeSeconds: true}
+      )
     
     return (
         <div className="container flex flex-col w-full max-w-5xl p-6 mx-auto divide-y rounded-md bg-white text-normalColor mb-10">
@@ -15,7 +20,7 @@ const AllReviews = ({review}) => {
                     </div>
                     <div>
                         <h4 className="font-bold">{name}</h4>
-                        <span className="text-xs text-gray-600">{reviewTime} mins ago</span>
+                        <span className="text-xs text-gray-600">{reviewTime} ago</span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-500">

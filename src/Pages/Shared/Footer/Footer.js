@@ -6,7 +6,7 @@ import { BsFacebook, BsTwitter, BsGithub, BsLinkedin, BsInstagram } from "react-
 const Footer = () => {
     return (
         <div className=''>
-            <footer className="bg-gray-200 pt-4 pb-8 xl:pt-8 rounded-t-md">
+            <footer className="bg-gray-200 pt-4 pb-8 xl:pt-8 rounded-t-md mt-36">
                 <div className="sm:max-w-xl md:max-w-full lg:max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 text-gray-400 dark:text-gray-300">
                     <ul className="text-lg font-light pb-8 flex flex-wrap justify-center">
                         <li className="w-1/2 md:w-1/3 lg:w-1/3">
@@ -114,7 +114,7 @@ const Footer = () => {
                             <BsInstagram className='text-2xl text-pink-600'></BsInstagram>
                         </a>
                     </div>
-                    <div className="text-black font-normal text-right pt-10 sm:pt-12">
+                    <div className="text-black font-normal text-center md:text-right pt-10 sm:pt-12">
                         <p>© 2022 Bangoli Taste. All rights reserved.</p>
                     </div>
                 </div>
