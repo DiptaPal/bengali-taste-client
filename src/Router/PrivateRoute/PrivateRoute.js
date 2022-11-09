@@ -10,12 +10,12 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if (loader) {
-        return <div className='flex justify-center items-end'>
+        return <div className='flex justify-center items-center'>
             <BallTriangle
-                height={100}
-                width={100}
+                height={400}
+                width={200}
                 radius={5}
-                color="#fd661f"
+                color="#fb9300"
                 ariaLabel="ball-triangle-loading"
                 wrapperClass={{}}
                 wrapperStyle=""
