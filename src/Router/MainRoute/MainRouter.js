@@ -11,6 +11,8 @@ import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blog/Blog";
 import EditReview from "../../Pages/EditReview/EditReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SQLvsNSQL from "../../Pages/Blog/SQLvsNSQL";
+import Jwt from "../../Pages/Blog/Jwt";
 
 
 export const routes = createBrowserRouter([
@@ -60,7 +62,15 @@ export const routes = createBrowserRouter([
                 path: '/edit/:id',
                 element: <EditReview></EditReview>,
                 loader: ({params}) => fetch(`https://bengali-taste-server.vercel.app/editReview/${params.id}`)
-            }
+            },
+            {
+                path: '/sqlvsnsql',
+                element: <SQLvsNSQL></SQLvsNSQL>
+            },
+            {
+                path: '/jwt',
+                element: <Jwt></Jwt>
+            },
 
         ]
     }
