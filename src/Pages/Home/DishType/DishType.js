@@ -9,7 +9,7 @@ const DishType = () => {
         <div className='my-28 max-w-5xl mx-auto flex flex-col justify-center items-center'>
             <p className='text-4xl text-activeColor text-center mb-10 font-bold'>Dishes Types</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                <div className='border border-activeColor shadow-xl rounded-md max-w-xs'>
+                <div className='border border-activeColor shadow-xl rounded-md max-w-xs hover:scale-105 transition-all duration-500 cursor-pointer'>
                     <div className='relative'>
                         <img src={firstPic1} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
@@ -26,7 +26,7 @@ const DishType = () => {
                         <p className=''>Homemade food that is delivered in 90mins. Single portioned well-balanced, clean and healthy meals. Perfect for a homey feel and nutritious lunch at work.</p>
                     </div>
                 </div>
-                <div className='border border-activeColor shadow-xl rounded-md max-w-xs'>
+                <div className='border border-activeColor shadow-xl rounded-md max-w-xs hover:scale-105 transition-all duration-500 cursor-pointer'>
                     <div className='relative'>
                         <img src={firstPic2} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
@@ -43,7 +43,7 @@ const DishType = () => {
                         <p className=''>Precooked homemade and delicious dishes that will cut your time in the kitchen by more than half. Great to stock up your freezer with for busy days. Delivered to your doorstep the next day.</p>
                     </div>
                 </div>
-                <div className='border border-activeColor shadow-xl rounded-md max-w-xs'>
+                <div className='border border-activeColor shadow-xl rounded-md max-w-xs hover:scale-105 transition-all duration-500 cursor-pointer'>
                     <div className='relative'>
                         <img src={firstPic3} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
