@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
 
+
 const colors = {
     orange: "#FFBA5A",
     grey: "#ffffff"
@@ -81,10 +82,10 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
                         <Lottie animationData={reviewLogo} loop={true} />
                     </div>
                 </div>
-                <form onSubmit={handleReview} className="flex flex-col gap-5 justify-center bg-gray-300 px-4 rounded-md">
+                <form onSubmit={handleReview} className="flex flex-col gap-2 justify-center bg-gray-600 border border-activeColor px-4 rounded-md">
                     <div className="mt-8">
                         <div className='flex flex-col justify-center items-center'>
-                            <h2 className='uppercase pb-2 text-lg text-black font-bold'>Give Stars</h2>
+                            <h2 className='uppercase pb-2 text-lg text-white font-bold'>Give Stars</h2>
                             <div className='flex gap-3 mt-2'>
                                 {stars.map((_, index) => {
                                     return (
@@ -107,19 +108,19 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
                     </div>
                     <div>
                         <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
-                        <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input className="w-full bg-white text-gray-900 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                             defaultValue={name} readOnly type="text" placeholder="" />
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-1">
                         <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
                         <input className="w-full bg-white text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                             defaultValue={email} readOnly type="email" />
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-1">
                         <div>
                             <span className="uppercase text-sm text-normalColor font-bold">Message</span>
                             <textarea
-                                className="w-full text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name='review' required>
+                                className="w-full text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none"  name='review' required>
                             </textarea>
                         </div>
                         <button

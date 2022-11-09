@@ -22,10 +22,10 @@ const ServiceDetails = () => {
 
 
     const handleShowReview = (id) => {
-        fetch(`https://bengali-taste-server.vercel.app/reviews?serviceId=${id}`,{
+        fetch(`https://bengali-taste-server.vercel.app/reviews?serviceId=${id}`, {
         })
-        .then(res => res.json())
-        .then(data => setReviews(data))
+            .then(res => res.json())
+            .then(data => setReviews(data))
     }
 
     return (
@@ -41,14 +41,6 @@ const ServiceDetails = () => {
                 </p>
             </div>
             <div className='my-20'>
-                <div className=''>
-                    {
-                        reviews.map(review => <AllReviews
-                            key={review._id}
-                            review={review}
-                        ></AllReviews>)
-                    }
-                </div>
                 <div>
                     {
                         user?.uid ?
@@ -65,6 +57,14 @@ const ServiceDetails = () => {
                                     Please login to add a review
                                 </Link>
                             </button>
+                    }
+                </div>
+                <div className=''>
+                    {
+                        reviews.map(review => <AllReviews
+                            key={review._id}
+                            review={review}
+                        ></AllReviews>)
                     }
                 </div>
             </div>
