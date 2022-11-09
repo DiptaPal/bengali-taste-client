@@ -7,7 +7,7 @@ import { FaCubes, FaUsers, FaUtensils } from "react-icons/fa";
 const DishType = () => {
     return (
         <div className='my-28 max-w-5xl mx-auto flex flex-col justify-center items-center'>
-            <p className='text-4xl text-activeColor text-center mb-10 font-bold'>Dishes Types</p>
+            <p className='text-4xl uppercase font-bold text-center mb-10 underline text-activeColor'>Dishes Types</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 <div className='border border-activeColor shadow-xl rounded-md max-w-xs hover:scale-105 transition-all duration-500 cursor-pointer'>
                     <div className='relative'>

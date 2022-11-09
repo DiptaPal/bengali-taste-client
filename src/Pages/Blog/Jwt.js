@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Jwt = () => {
+    useTitle('JWT')
     return (
         <div className='max-w-5xl mx-auto flex flex-col gap-4 text-lg text-justify'>
             <img src="https://miro.medium.com/max/800/1*ulCspc56K_swYE1uuel_TA.png" className='rounded-lg object-cover object-center' alt="" />
             <h2 className='text-2xl'>What is JWT, and how does it work?</h2>
             <h4 className='font-bold text-lg'>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.</h4>
-            
+
             <h2 className='text-2xl font-semibold'>What Is JSON?</h2>
             <p>For beginning developers, JSON stands for JavaScript Object Notation and is a text-based format for transmitting data across web applications. It stores information in an easy-to-access manner, both for developers and computers. It can be used as a data format by any programming language and is quickly becoming the preferred syntax for APIs, surpassing XML.</p>
 
@@ -24,10 +27,14 @@ const Jwt = () => {
             </ul>
 
             <p>The JOSE (JSON Object Signing and Encryption) header contains the type of token — JWT in this case — and the signing algorithm.</p>
-           <p>The payload contains the claims. This is displayed as a JSON string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are requesting.</p>
-           <p>There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be present. some are more common than others.</p>
+            <p>The payload contains the claims. This is displayed as a JSON string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are requesting.</p>
+            <p>There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be present. some are more common than others.</p>
 
             <p>The signature ensures that the token hasn’t been altered. The party that creates the JWT signs the header and payload with a secret that is known to both the issuer and receiver, or with a private key known only to the sender. When the token is used, the receiving party verifies that the header and payload match the signature.</p>
+
+            <Link to={`/blog`}>
+                <button className='w-full mt-4 py-3 font-medium bg-normalColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor text-xl drop-shadow-md'>Go Back</button>
+            </Link>
         </div>
     );
 };

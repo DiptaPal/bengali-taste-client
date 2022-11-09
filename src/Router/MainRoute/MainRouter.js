@@ -13,6 +13,8 @@ import EditReview from "../../Pages/EditReview/EditReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SQLvsNSQL from "../../Pages/Blog/SQLvsNSQL";
 import Jwt from "../../Pages/Blog/Jwt";
+import JsVsNode from "../../Pages/Blog/JsVsNode";
+import NodeJS from "../../Pages/Blog/NodeJS";
 
 
 export const routes = createBrowserRouter([
@@ -71,6 +73,14 @@ export const routes = createBrowserRouter([
                 path: '/jwt',
                 element: <Jwt></Jwt>
             },
+            {
+                path: '/jsVsNode',
+                element: <JsVsNode></JsVsNode>
+            },
+            {
+                path: '/nodejs',
+                element: <NodeJS></NodeJS>
+            }
 
         ]
     }

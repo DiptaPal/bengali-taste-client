@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const SQLvsNSQL = () => {
+    useTitle('SQL vs NoSQL')
     return (
         <div className='max-w-5xl mx-auto flex flex-col gap-4 text-lg text-justify'>
             <img src="https://miro.medium.com/max/1012/1*Z5SpsmDvk67BIImwHvh_cQ.png" className='rounded-lg object-cover object-center' alt="" />
@@ -59,6 +62,9 @@ const SQLvsNSQL = () => {
             <p>NoSQL technologies are being adopted quickly, but communities remain smaller and more fractured. However, many SQL languages are proprietary or associated with large single-vendors, while NoSQL communities benefit from open systems and concerted commitment to onboarding users.</p>
             <p>SQL is available to most major platforms, from operating systems to architectures and programming languages. Compatibility varies more widely for NoSQL, and dependencies need to be investigated more carefully.</p>
 
+            <Link to={`/blog`}>
+                <button className='w-full mt-4 py-3 font-medium bg-normalColor text-white transition duration-200 rounded-md shadow-md hover:bg-gray-300 hover:text-activeColor text-xl drop-shadow-md'>Go Back</button>
+            </Link>
         </div>
     );
 };
