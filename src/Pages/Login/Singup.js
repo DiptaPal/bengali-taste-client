@@ -4,10 +4,10 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
-import { setAuthToken } from '../../API/Auth';
+// import { setAuthToken } from '../../API/Auth';
 
 const Singup = () => {
-    const {setLoader, singInWithGoogle, createUser, updateUserProfile } = useContext(AuthContext);
+    const { setLoader, singInWithGoogle, createUser, updateUserProfile } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [accept, setAccept] = useState(false);
@@ -24,15 +24,15 @@ const Singup = () => {
         const email = form.email.value;
         const password = form.password.value;
         // console.log(name,photo_url,email, password);
-        if(!/(?=.*[A-Z].*[A-Z])/.test(password)){
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
             setError('Please provide at least two uppercase');
             return;
         }
-        if(password.length < 6){
+        if (password.length < 6) {
             setError('Password should be at least 6 characters.')
             return;
         }
-        if(!/(?=.*[!@#$%^&*])/.test(password)){
+        if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError('Please add at least one special character')
             return;
         }
@@ -43,11 +43,25 @@ const Singup = () => {
 
                 //get jwt token
                 const user = result.user;
-                setAuthToken(user)
-
-                toast.success('Registration Successful!', { autoClose: 1000 })
-                form.reset();
-                navigate('/home');
+                const currentUser = {
+                    email: user.email
+                }
+                //get jwt token
+                fetch('https://bengali-taste-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        //local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('bengali-taste', data.token)
+                        toast.success('Registration Successful!', { autoClose: 1000 })
+                        form.reset();
+                        navigate('/home');
+                    })
             })
             .catch(error => {
                 setError(error.message)
@@ -71,10 +85,24 @@ const Singup = () => {
             .then(result => {
                 //get jwt token
                 const user = result.user;
-                setAuthToken(user)
-
-                toast.success("Login success!", { autoClose: 1000 })
-                navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email
+                }
+                //get jwt token
+                fetch('https://bengali-taste-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        //local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('bengali-taste', data.token)
+                        toast.success("Login success!", { autoClose: 1000 })
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => {
                 toast.success(error.massage, { autoClose: 1000 })
@@ -117,7 +145,7 @@ const Singup = () => {
     }
 
     return (
-        <div  className='flex justify-center items-center my-28'>
+        <div className='flex justify-center items-center my-28'>
             <div className="w-full max-w-lg p-8 space-y-3 rounded-xl shadow-lg text-black border-activeColor border bg-gray-200">
                 <h1 className="text-4xl font-bold text-center text-navActive">Registration</h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -140,8 +168,8 @@ const Singup = () => {
                     </div>
                     <div className='space-y-2'>
                         <div className='flex items-start mb-4'>
-                            <input id="checkbox" onClick={handleAccepted} className="cursor-pointer h-5 w-5" type="checkbox"/>
-                                <label htmlFor="checkbox" className="cursor-pointer text-sm ml-3 font-medium text-gray-900">I agree to the <Link className="text-blue-600 hover:underline">terms and conditions</Link></label>
+                            <input id="checkbox" onClick={handleAccepted} className="cursor-pointer h-5 w-5" type="checkbox" />
+                            <label htmlFor="checkbox" className="cursor-pointer text-sm ml-3 font-medium text-gray-900">I agree to the <Link className="text-blue-600 hover:underline">terms and conditions</Link></label>
                         </div>
                     </div>
                     <div>
