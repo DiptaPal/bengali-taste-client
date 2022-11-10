@@ -41,7 +41,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/services',
@@ -62,7 +62,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/edit/:id',
-                element: <EditReview></EditReview>,
+                element: <PrivateRoute><EditReview></EditReview></PrivateRoute>,
                 loader: ({params}) => fetch(`https://bengali-taste-server.vercel.app/editReview/${params.id}`)
             },
             {

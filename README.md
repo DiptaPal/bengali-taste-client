@@ -1,4 +1,53 @@
-# Getting Started with Create React App
+# Project Name: [Bengali Taste](https://bangoli-taste.web.app/)
+
+## Live Link: https://bangoli-taste.web.app/
+
+## Client Side Repository Link: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-DiptaPal
+
+## Server Side Repository Link: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-DiptaPal
+#<b><u>About:</u><b>
+
+<p>Bengali Taste is a online homemade food delivery service. Bengali Taste always concern about nutrition, tasty and hygienic food. We always to delivery our food on time. We also concern about customer review that why we made this web app for customer review friendly. We always trying to improve our food quality base user review and we are taking all food review by Bengali Taste.<p> 
+
+## <u>Features:</u>
+* User Authentication
+* Food Service Providing
+* Private Route
+* Customer can give review at each service 
+* Customer can edit review
+* Customer cam see review time
+* Unauthorized customer also filter out
+* Customer can see others review
+* Provider can add service
+* Customer can read blog at blog page
+
+
+### <u>Which i used:</u>
+* React
+* Tialwind
+* Mamba UI
+* Kitwind
+* HyperUI
+* React Route
+* React Toastify
+* React Icon
+* Lottie-React
+* Context API
+* Deploy in Firebase
+* Express JS
+* MongoDB atlas
+* Swiper JS 
+* Firebase
+* react-loader-spinner
+* react Aos
+* react countup
+* date-fns
+* react-photo-view
+* sweetalert
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,43 +77,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

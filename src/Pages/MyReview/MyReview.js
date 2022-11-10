@@ -46,7 +46,7 @@ const MyReview = ({ myReview, handleDelete }) => {
             </div>
             <div className="p-4 space-y-2 text-sm text-gray-600">
                 <h2 className='text-xl font-bold mb-2'><span className='font-normal'>Service Name: </span>{serviceTitle}</h2>
-                <p className='text-xl'>My Message: {message}</p>
+                <p className='text-xl font-semibold'><span className='font-normal'>My Review: </span>{message}</p>
             </div>
         </div>
     );

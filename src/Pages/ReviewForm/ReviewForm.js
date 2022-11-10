@@ -120,7 +120,7 @@ const ReviewForm = ({ user, service, handleShowReview }) => {
                         <div>
                             <span className="uppercase text-sm text-normalColor font-bold">Message</span>
                             <textarea
-                                className="w-full border border-activeColor text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none"  name='review' required>
+                                className="w-full border border-activeColor text-xl h-32 bg-white text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none" placeholder='Message...'  name='review' required>
                             </textarea>
                         </div>
                         <button
