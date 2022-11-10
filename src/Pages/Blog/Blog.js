@@ -8,7 +8,7 @@ const Blog = () => {
     <div className='mb-32 mt-10'>
       <h2 className='text-4xl uppercase font-bold text-center mb-10 underline text-activeColor'>All Blog is Here</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-        <div className="max-w-lg p-4 rounded-lg shadow-md bg-white text-gray-800">
+        <div className="max-w-lg mx-auto p-4 rounded-lg shadow-md bg-white text-gray-800">
           <div className="space-y-4">
             <div className="space-y-4">
               <img src="https://miro.medium.com/max/1012/1*Z5SpsmDvk67BIImwHvh_cQ.png" alt="" className="block object-cover object-center w-full rounded-md h-72 bg-gray-500" />
@@ -25,7 +25,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="max-w-lg p-4 rounded-lg shadow-md bg-white text-gray-800">
+        <div className="max-w-lg mx-auto p-4 rounded-lg shadow-md bg-white text-gray-800">
           <div className="space-y-4">
             <div className="space-y-2">
               <img src="https://miro.medium.com/max/800/1*ulCspc56K_swYE1uuel_TA.png" alt="" className="block object-cover object-center w-full rounded-md h-72 bg-gray-500" />
@@ -42,7 +42,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="max-w-lg p-4 rounded-lg shadow-md bg-white text-gray-800">
+        <div className="max-w-lg mx-auto p-4 rounded-lg shadow-md bg-white text-gray-800">
           <div className="space-y-4">
             <div className="space-y-2">
               <img src="https://www.atliq.com/wp-content/uploads/2022/06/Know-the-difference-between-javascript-and-node-js-1-1-1.jpg" alt="" className="block object-cover object-center w-full rounded-md h-72 bg-gray-500" />
@@ -59,7 +59,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="max-w-lg p-4 rounded-lg shadow-md bg-white text-gray-800">
+        <div className="max-w-lg mx-auto p-4 rounded-lg shadow-md bg-white text-gray-800">
           <div className="space-y-4">
             <div className="space-y-2">
               <img src="https://www.tutorialandexample.com/wp-content/uploads/2020/11/Node.js-Event-Loop-1.png" alt="" className="block object-cover object-center w-full rounded-md h-72 bg-gray-500" />
