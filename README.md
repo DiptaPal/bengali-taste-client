@@ -35,15 +35,16 @@
 * Context API
 * Deploy in Firebase
 * Express JS
-* MongoDB atlas
+* MongoDB Atlas
 * Swiper JS 
 * Firebase
-* react-loader-spinner
-* react Aos
-* react countup
-* date-fns
-* react-photo-view
-* sweetalert
+* React Loader Spinner
+* React Aos
+* React Count Up
+* Date Fns
+* React Photo View
+* Sweet Alert
+* React Simple Typewriter
 
 
 

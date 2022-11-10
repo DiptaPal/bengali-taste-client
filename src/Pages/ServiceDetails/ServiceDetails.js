@@ -5,6 +5,7 @@ import useTitle from '../../hooks/useTitle';
 import AllReviews from '../AllReviews/AllReviews';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import Timeline from '../Shared/Timeline/Timeline';
+import { Typewriter } from 'react-simple-typewriter'
 
 
 const ServiceDetails = () => {
@@ -34,7 +35,21 @@ const ServiceDetails = () => {
             <div className='mx-auto'>
                 <img src={url} alt="" className='w-full object-cover object-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl ' />
                 <div className='flex justify-between items-center my-6'>
-                    <h1 className='text-3xl sm:text-5xl font-bold text-activeColor'>{title}</h1>
+                    <h1 className='text-3xl sm:text-5xl font-bold text-activeColor'>
+                        {" "}
+                        <span style={{ color: "#fd9300", fontWeight: "bold" }}>
+                            <Typewriter
+                                loop
+                                cursor
+                                cursorStyle="_"
+                                typeSpeed={80}
+                                deleteSpeed={140}
+                                delaySpeed={1000}
+                                words={[` ${title}`]}
+                            />
+                        </span>
+
+                    </h1>
                     <p className='text-xl sm:text-3xl font-bold text-blue-600'>${price}</p>
                 </div>
                 <p className='text-xl text-justify'>
