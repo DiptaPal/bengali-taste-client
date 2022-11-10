@@ -1,6 +1,5 @@
 import React from 'react';
 import discountLogo from '../../../assets/image/discount.jpeg'
-import firedRice from '../../../assets/image/discount2.jpeg'
 import corner from '../../../assets/image/discount3.png'
 import './Discount.css'
 const Discount = () => {
