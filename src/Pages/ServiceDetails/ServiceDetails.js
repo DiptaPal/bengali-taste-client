@@ -60,10 +60,12 @@ const ServiceDetails = () => {
                     }
                 </div>
                 <div className='mt-10'>
+                    <p className='max-w-5xl py-6 text-xl text-left'>Total Customer Review({reviews.length}) :</p>
                     {
                         reviews.map(review => <AllReviews
                             key={review._id}
                             review={review}
+                            totalReview={reviews.length}
                         ></AllReviews>)
                     }
                 </div>
