@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import AllReviews from '../AllReviews/AllReviews';
 import ReviewForm from '../ReviewForm/ReviewForm';
+import Timeline from '../Shared/Timeline/Timeline';
 
 
 const ServiceDetails = () => {
@@ -34,12 +35,17 @@ const ServiceDetails = () => {
                 <img src={url} alt="" className='w-full object-cover object-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl ' />
                 <div className='flex justify-between items-center my-6'>
                     <h1 className='text-3xl sm:text-5xl font-bold text-activeColor'>{title}</h1>
-                    <p className='text-xl sm:text-3xl font-bold'>${price}</p>
+                    <p className='text-xl sm:text-3xl font-bold text-blue-600'>${price}</p>
                 </div>
                 <p className='text-xl text-justify'>
                     {description}
                 </p>
             </div>
+
+            <div className='my-20'>
+                <Timeline></Timeline>
+            </div>
+
             <div className='my-20'>
                 <div>
                     {
@@ -59,7 +65,7 @@ const ServiceDetails = () => {
                             </button>
                     }
                 </div>
-                <div className='mt-10'>
+                <div className='mt-0'>
                     <p className='max-w-5xl py-6 text-xl text-left'>Total Customer Review({reviews.length}) :</p>
                     {
                         reviews.map(review => <AllReviews
