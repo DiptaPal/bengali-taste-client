@@ -13,7 +13,7 @@ const DishType = () => {
                     <div className='relative'>
                         <img src={firstPic1} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
-                            <div className='bg-white shadow-md rounded-full flex justify-center items-end'>
+                            <div data-aos="fade-down" className='bg-white shadow-md rounded-full flex justify-center items-end'>
                                 <div className='flex flex-col items-center justify-center px-6 py-8 text-black'>
                                     <FaUtensils className='text-4xl'></FaUtensils>
                                     <h3 className='text-3xl font-bold'>Single</h3>
@@ -30,7 +30,7 @@ const DishType = () => {
                     <div className='relative'>
                         <img src={firstPic2} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
-                            <div className='bg-white shadow-md rounded-full flex justify-center items-end'>
+                            <div data-aos="fade-down" className='bg-white shadow-md rounded-full flex justify-center items-end'>
                                 <div className='flex flex-col items-center justify-center px-6 py-8 text-black'>
                                     <FaCubes className='text-4xl'></FaCubes>
                                     <h3 className='text-3xl font-bold'>Frozen</h3>
@@ -47,7 +47,7 @@ const DishType = () => {
                     <div className='relative'>
                         <img src={firstPic3} alt="" className='h-64 w-full object-cover object-center rounded-t-md' />
                         <div className='flex justify-center items-center absolute -bottom-16 left-[28%]'>
-                            <div className='bg-white shadow-md rounded-full flex justify-center items-end'>
+                            <div data-aos="fade-down" className='bg-white shadow-md rounded-full flex justify-center items-end'>
                                 <div className='flex flex-col items-center justify-center px-6 py-8 text-black'>
                                     <FaUsers className='text-4xl'></FaUsers>
                                     <h3 className='text-3xl font-bold'>Family</h3>

@@ -7,7 +7,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 const Service = ({ service }) => {
     const { title, price, url, description, _id } = service;
     return (
-        <div>
+        <div data-aos="fade-up">
             <PhotoProvider>
                 <div className="drop-shadow-md p-6 rounded-md card card-compact bg-white shadow-md min-h-full">
                     <figure>

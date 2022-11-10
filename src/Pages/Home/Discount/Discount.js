@@ -1,7 +1,6 @@
 import React from 'react';
 import discountLogo from '../../../assets/image/discount.jpeg'
 import corner from '../../../assets/image/discount3.png'
-import './Discount.css'
 const Discount = () => {
     return (
         <div className='my-10'>
@@ -13,7 +12,7 @@ const Discount = () => {
                     <h1 className='text-xl sm:2xl md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8px font-extrabold'><span className='text-activeColor'>40%</span> Discount</h1>
                 </div>
                 <p className='absolute text-white font-bold p-10 top-[5%] right-[5%] block sm:hidden z-50'>Get UpTo 40% Discount</p>
-                <img src={corner} alt="" className='absolute bottom-0 right-0 z-0 object-cover object-center overflow-hidden h-[100px] lg:h-[200px] ' />
+                <img src={corner} alt="" className='absolute bottom-0 right-0 z-0 object-cover object-center overflow-hidden h-[100px] lg:h-[200px] rounded-br-lg' />
                
 
             </div>
