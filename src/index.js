@@ -7,14 +7,15 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Context/AuthProvider';
 import ScrollToTop from "react-scroll-to-top";
+import { BsFillArrowUpSquareFill } from 'react-icons/bs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
       <ToastContainer position='top-center' />
+      <ScrollToTop smooth component={<BsFillArrowUpSquareFill className='text-activeColor text-5xl mx-auto'></BsFillArrowUpSquareFill>} />
       <App />
-      <ScrollToTop smooth />
     </AuthProvider>
   </React.StrictMode>
 );

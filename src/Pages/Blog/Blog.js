@@ -5,7 +5,7 @@ import useTitle from '../../hooks/useTitle';
 const Blog = () => {
   useTitle('Blog')
   return (
-    <div className='mb-32 mt-24'>
+    <div className='mb-32 mt-10'>
       <h2 className='text-4xl uppercase font-bold text-center mb-10 underline text-activeColor'>All Blog is Here</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
         <div className="max-w-lg p-4 rounded-lg shadow-md bg-white text-gray-800">
