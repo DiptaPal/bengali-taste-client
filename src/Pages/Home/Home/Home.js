@@ -7,6 +7,7 @@ import Discount from '../Discount/Discount';
 import DishType from '../DishType/DishType';
 import HomeBlog from '../HomeBlog/HomeBlog';
 import Services from '../Services/Services';
+import Team from '../Team/Team';
 import TotalInfo from '../TotalInfo/TotalInfo';
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             <DishType></DishType>
             <Discount></Discount>
             <HomeBlog></HomeBlog>
+            <Team></Team>
             <Contact></Contact>
         </div>
     );

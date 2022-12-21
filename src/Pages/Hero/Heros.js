@@ -15,7 +15,7 @@ const Heros = ({ slider }) => {
                     <h1 className='text-2xl sm:text-5xl text-white font-bold text-center sm:text-left'>
                     Get Delicious, Healthy <br /> <span className='text-activeColor'>Homemade</span> Food
                     </h1>
-                    <h2 className='text-white text-sm sm:text-xl w-2/3 mx-auto sm:mx-0 text-center sm:text-left'>Bengoli Taste is an online platform connecting talented home based cooks with hungry professionals to give them access to wholesome fresh homemade food, from the homechef’s kitchen.</h2>
+                    <h2 className='text-white text-sm sm:text-xl w-2/3 mx-auto sm:mx-0 text-center sm:text-left'>Bengali Taste is an online platform connecting talented home based cooks with hungry professionals to give them access to wholesome fresh homemade food, from the homechef’s kitchen.</h2>
                     <div className='flex flex-col sm:flex-row items-center gap-4'>
                         <button className="text-base shadow-lg sm:text-xl py-3 px-6 bg-activeColor rounded-md text-white">Start Review</button>
                     </div>
